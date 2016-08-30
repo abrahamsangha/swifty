@@ -14,16 +14,7 @@ app.post('/pairs/', controllers.pairs.index)
 
 app.post('/pairs/create', controllers.pairs.create);
 
-
-app.post('/feedback', function(req,res) {
-  console.log(req.query);
-  // this is admittedly gross, but...
-  var pairPartner = req.query.text.split("@")[1].split(" ")[0];
-  var pairInitiater = req.query.user_name;
-  console.log(pairPartner, pairInitiater);
-  Swifty.postToUser(pairPartner,  pairInitiater + " said they were pairing with you! Have fun!");
-  Swifty.postToUser(pairInitiater, "your pairing session has been logged. Be cool to " + pairPartner);
-});
+app.post('/feedback', controllers.feedbacks.create);
 
 var server = app.listen(PORT, function() {
   var host = server.address().address
