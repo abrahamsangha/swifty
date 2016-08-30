@@ -8,7 +8,7 @@ FeedbacksController.create = function (req, res) {
   Swifty.postToUser(pairPartner,  pairInitiater + " left you this feedback: " + feedback);
   res.send({
     status: "ok",
-    text: "your feedback to " + pairPartner + "has been sent"
+    text: "your feedback to " + pairPartner + " has been sent"
   });
 }
 
